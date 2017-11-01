@@ -31,7 +31,7 @@
             this.tbc_root = new System.Windows.Forms.TabControl();
             this.tbp_settings = new System.Windows.Forms.TabPage();
             this.grp_new_session = new System.Windows.Forms.GroupBox();
-            this.txt_commit_format = new ScintillaNET.Scintilla();
+            this.txt_commit_format = new gui_merger.Controls.RWScintilla();
             this.lbl_commit_format = new System.Windows.Forms.Label();
             this.lbl_a_path = new System.Windows.Forms.Label();
             this.txt_a_path = new System.Windows.Forms.TextBox();
@@ -45,8 +45,8 @@
             this.split_spl = new System.Windows.Forms.SplitContainer();
             this.btn_sources_file_reload = new System.Windows.Forms.Button();
             this.btn_browse_to_sources_file = new System.Windows.Forms.Button();
-            this.txt_sources_file = new ScintillaNET.Scintilla();
-            this.lbl_sources_file_path = new System.Windows.Forms.Label();
+            this.txt_sources_file = new gui_merger.Controls.RWScintilla();
+            this.lbl_sources_file_path = new System.Windows.Forms.TextBox();
             this.lbl_sources_file = new System.Windows.Forms.Label();
             this.rd_review = new System.Windows.Forms.RadioButton();
             this.rd_rejected = new System.Windows.Forms.RadioButton();
@@ -59,17 +59,17 @@
             this.split_diff = new System.Windows.Forms.SplitContainer();
             this.btn_file_a_reload = new System.Windows.Forms.Button();
             this.btn_browse_to_file_a = new System.Windows.Forms.Button();
-            this.txt_file_a = new ScintillaNET.Scintilla();
-            this.lbl_file_a_path = new System.Windows.Forms.Label();
+            this.txt_file_a = new gui_merger.Controls.RWScintilla();
+            this.lbl_file_a_path = new System.Windows.Forms.TextBox();
             this.lbl_file_a = new System.Windows.Forms.Label();
             this.btn_file_b_reload = new System.Windows.Forms.Button();
             this.btn_browse_to_file_b = new System.Windows.Forms.Button();
-            this.txt_file_b = new ScintillaNET.Scintilla();
-            this.lbl_file_b_path = new System.Windows.Forms.Label();
+            this.txt_file_b = new gui_merger.Controls.RWScintilla();
+            this.lbl_file_b_path = new System.Windows.Forms.TextBox();
             this.lbl_file_b = new System.Windows.Forms.Label();
             this.tbp_output = new System.Windows.Forms.TabPage();
             this.btn_save_output = new System.Windows.Forms.Button();
-            this.txt_ouput = new ScintillaNET.Scintilla();
+            this.txt_output = new gui_merger.Controls.RWScintilla();
             this.statusbar = new System.Windows.Forms.StatusStrip();
             this.tbc_root.SuspendLayout();
             this.tbp_settings.SuspendLayout();
@@ -101,6 +101,7 @@
             this.tbc_root.SelectedIndex = 0;
             this.tbc_root.Size = new System.Drawing.Size(1066, 749);
             this.tbc_root.TabIndex = 0;
+            this.tbc_root.SelectedIndexChanged += new System.EventHandler(this.tbc_root_SelectedIndexChanged);
             // 
             // tbp_settings
             // 
@@ -316,10 +317,12 @@
             // 
             // lbl_sources_file_path
             // 
-            this.lbl_sources_file_path.AutoSize = true;
-            this.lbl_sources_file_path.Location = new System.Drawing.Point(84, 12);
+            this.lbl_sources_file_path.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl_sources_file_path.Location = new System.Drawing.Point(84, 9);
             this.lbl_sources_file_path.Name = "lbl_sources_file_path";
-            this.lbl_sources_file_path.Size = new System.Drawing.Size(44, 13);
+            this.lbl_sources_file_path.ReadOnly = true;
+            this.lbl_sources_file_path.Size = new System.Drawing.Size(306, 20);
             this.lbl_sources_file_path.TabIndex = 5;
             this.lbl_sources_file_path.Text = "%path%";
             // 
@@ -403,7 +406,7 @@
             // lbl_matches
             // 
             this.lbl_matches.AutoSize = true;
-            this.lbl_matches.Location = new System.Drawing.Point(14, 17);
+            this.lbl_matches.Location = new System.Drawing.Point(14, 13);
             this.lbl_matches.Name = "lbl_matches";
             this.lbl_matches.Size = new System.Drawing.Size(48, 13);
             this.lbl_matches.TabIndex = 1;
@@ -481,10 +484,12 @@
             // 
             // lbl_file_a_path
             // 
-            this.lbl_file_a_path.AutoSize = true;
-            this.lbl_file_a_path.Location = new System.Drawing.Point(65, 11);
+            this.lbl_file_a_path.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl_file_a_path.Location = new System.Drawing.Point(65, 8);
             this.lbl_file_a_path.Name = "lbl_file_a_path";
-            this.lbl_file_a_path.Size = new System.Drawing.Size(44, 13);
+            this.lbl_file_a_path.ReadOnly = true;
+            this.lbl_file_a_path.Size = new System.Drawing.Size(325, 20);
             this.lbl_file_a_path.TabIndex = 1;
             this.lbl_file_a_path.Text = "%path%";
             // 
@@ -532,10 +537,12 @@
             // 
             // lbl_file_b_path
             // 
-            this.lbl_file_b_path.AutoSize = true;
-            this.lbl_file_b_path.Location = new System.Drawing.Point(61, 11);
+            this.lbl_file_b_path.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl_file_b_path.Location = new System.Drawing.Point(61, 8);
             this.lbl_file_b_path.Name = "lbl_file_b_path";
-            this.lbl_file_b_path.Size = new System.Drawing.Size(44, 13);
+            this.lbl_file_b_path.ReadOnly = true;
+            this.lbl_file_b_path.Size = new System.Drawing.Size(398, 20);
             this.lbl_file_b_path.TabIndex = 4;
             this.lbl_file_b_path.Text = "%path%";
             // 
@@ -551,7 +558,7 @@
             // tbp_output
             // 
             this.tbp_output.Controls.Add(this.btn_save_output);
-            this.tbp_output.Controls.Add(this.txt_ouput);
+            this.tbp_output.Controls.Add(this.txt_output);
             this.tbp_output.Location = new System.Drawing.Point(4, 22);
             this.tbp_output.Name = "tbp_output";
             this.tbp_output.Padding = new System.Windows.Forms.Padding(3);
@@ -570,15 +577,15 @@
             this.btn_save_output.Text = "Save as...";
             this.btn_save_output.UseVisualStyleBackColor = true;
             // 
-            // txt_ouput
+            // txt_output
             // 
-            this.txt_ouput.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.txt_output.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_ouput.Location = new System.Drawing.Point(4, 7);
-            this.txt_ouput.Name = "txt_ouput";
-            this.txt_ouput.Size = new System.Drawing.Size(1051, 657);
-            this.txt_ouput.TabIndex = 0;
+            this.txt_output.Location = new System.Drawing.Point(4, 7);
+            this.txt_output.Name = "txt_output";
+            this.txt_output.Size = new System.Drawing.Size(1051, 657);
+            this.txt_output.TabIndex = 0;
             // 
             // statusbar
             // 
@@ -638,24 +645,24 @@
         private System.Windows.Forms.StatusStrip statusbar;
         private System.Windows.Forms.Button btn_begin;
         private System.Windows.Forms.TabPage tbp_output;
-        private ScintillaNET.Scintilla txt_ouput;
+        private gui_merger.Controls.RWScintilla txt_output;
         private System.Windows.Forms.Button btn_save_output;
         private System.Windows.Forms.SplitContainer split_merge;
         private System.Windows.Forms.SplitContainer split_spl;
         private System.Windows.Forms.Button btn_browse_to_sources_file;
-        private ScintillaNET.Scintilla txt_sources_file;
-        private System.Windows.Forms.Label lbl_sources_file_path;
+        private gui_merger.Controls.RWScintilla txt_sources_file;
+        private System.Windows.Forms.TextBox lbl_sources_file_path;
         private System.Windows.Forms.Label lbl_sources_file;
         private System.Windows.Forms.Label lbl_matches;
         private System.Windows.Forms.CheckedListBox lst_matches;
         private System.Windows.Forms.SplitContainer split_diff;
         private System.Windows.Forms.Button btn_browse_to_file_a;
-        private ScintillaNET.Scintilla txt_file_a;
-        private System.Windows.Forms.Label lbl_file_a_path;
+        private gui_merger.Controls.RWScintilla txt_file_a;
+        private System.Windows.Forms.TextBox lbl_file_a_path;
         private System.Windows.Forms.Label lbl_file_a;
         private System.Windows.Forms.Button btn_browse_to_file_b;
-        private ScintillaNET.Scintilla txt_file_b;
-        private System.Windows.Forms.Label lbl_file_b_path;
+        private gui_merger.Controls.RWScintilla txt_file_b;
+        private System.Windows.Forms.TextBox lbl_file_b_path;
         private System.Windows.Forms.Label lbl_file_b;
         private System.Windows.Forms.GroupBox grp_new_session;
         private System.Windows.Forms.Label lbl_commit_format;
@@ -665,7 +672,7 @@
         private System.Windows.Forms.RadioButton rd_rejected;
         private System.Windows.Forms.RadioButton rd_merged;
         private System.Windows.Forms.RadioButton rd_dft;
-        private ScintillaNET.Scintilla txt_commit_format;
+        private gui_merger.Controls.RWScintilla txt_commit_format;
         private System.Windows.Forms.Button btn_sources_file_reload;
         private System.Windows.Forms.Button btn_file_a_reload;
         private System.Windows.Forms.Button btn_file_b_reload;

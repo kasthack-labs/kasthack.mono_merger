@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 
 namespace gui_merger.Core
 {
@@ -47,6 +48,6 @@ namespace gui_merger.Core
         }
 
         private void SetupState() => State = new MergeStateVM(_model.State);
-
+        public void Merge() => _model.Merge();
     }
 }

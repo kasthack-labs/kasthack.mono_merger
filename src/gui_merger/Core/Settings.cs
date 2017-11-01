@@ -5,8 +5,8 @@
     {
         private string _monoPath;
         private string _refPath;
-        private string _commitFormat = @"
-#replacing {CLASS_NAME}
+        private string _commitFormat = 
+@"#replacing {CLASS_NAME}
 export S1={A_FILE}
 export S2={B_FILE}
 export SF={A_PATH}
