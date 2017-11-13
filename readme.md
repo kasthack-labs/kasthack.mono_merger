@@ -1,4 +1,7 @@
-mono merger
+# mono merger
+
+
+[![license](https://img.shields.io/github/license/kasthack/mono_merger.svg)](LICENSE)
 
 gui tool for merging refsource into the mono tree
 
