@@ -48,6 +48,6 @@ namespace gui_merger.Core
         }
 
         private void SetupState() => State = new MergeStateVM(_model.State);
-        public void Merge() => _model.Merge();
+        public void Merge() => _model.Apply();
     }
 }

@@ -24,6 +24,6 @@ namespace gui_merger.Core
             set => SetPropertyValue(ref _output, value);
         }
 
-        internal void Merge() => throw new NotImplementedException();
+        internal void Apply() => throw new NotImplementedException();
     }
 }
